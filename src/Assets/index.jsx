@@ -1,0 +1,1 @@
+export const product = require("./product.png")

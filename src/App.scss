@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Glory:wght@200&family=Indie+Flower&display=swap');
+
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Glory', sans-serif;
+  font-weight: 600;
+  
+}
+body{
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+:root{
+  --primary-color:#F5F5FA;
+  --secondary-color:#1F1F29;
+  // --primary-color:#1F1F29;
+  // --secondary-color:#F5F5FA;
+  --tertiary-color:#D09200;
+  --dark-color:black;
+  --bright-color:white;
+}
