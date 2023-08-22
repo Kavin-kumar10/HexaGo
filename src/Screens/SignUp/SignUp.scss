@@ -1,3 +1,4 @@
+
 .SignUp{
     height: 100vh;
     width: 100vw;
@@ -65,15 +66,17 @@
             .Data_entry{
                 display: flex;
                 flex-direction: column;
+                margin: 12px 0px;
                 label{
                     font-size: 20px;
+                    margin: 0px;
                 }
                 input{
                     outline: none;
                     border: none;
                     padding: 5px 0px;
                     font-size: 20px;
-                    background-color: none;
+                    background-color: transparent;
                 }
                 .line{
                     width: 100%;

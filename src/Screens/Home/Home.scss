@@ -1,0 +1,82 @@
+.Home{
+    width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .Trending{
+        min-height:80vh;
+        width: 100%;
+        padding: 50px 20px;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        .line{
+            height: 2px;
+            width: 100%;
+            background-color: grey;
+            margin: 10px 0px;
+        }
+        .Card_container{
+            margin:30px 0px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+    }
+    .seller{
+        height: 500px;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        .layer{
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-around;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px 100px;
+            font-weight: 900;
+            &_top{
+                h1{
+                    color: var(--primary-color);
+                }
+                .layer_line{
+                    height: 10px;
+                    width: 20%;
+                    background-color: var(--tertiary-color);
+                }
+            }
+            &_bot{
+                p{
+                    color: var(--primary-color);
+                    font-size: 20px;
+                    margin: 20px 0px;
+                }
+                button{
+                    border: none;
+                    padding: 12px 30px;
+                    border-radius: 12px;
+                    font-size: 18px;
+                    font-weight: bolder;
+                    letter-spacing: 2px;
+                    background-color: var(--tertiary-color);
+                    color: var(--primary-color);
+                    border: 1px solid var(--tertiary-color);
+                    &:hover{
+                        transition: all 0.2s linear;
+                        background-color: var(--primary-color);
+                        color: var(--tertiary-color);
+                    }
+                }
+            }
+        }
+    }
+}

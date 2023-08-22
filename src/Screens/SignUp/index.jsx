@@ -22,12 +22,12 @@ const SignUp = ({setSigned}) =>{
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
-            localStorage.setItem('user',JSON.stringify(user));
-            try{
-                const response = await axios.post('http://localhost:5000/Auth/SignUp',user);
-                console.log(response);
-                if(response.data.success == true){
-                    setSigned(true);
+        try{
+            const response = await axios.post('http://localhost:5000/Auth/SignUp',user);
+            console.log(response);
+            if(response.data.success == true){
+                setSigned(true);
+                localStorage.setItem('user',JSON.stringify(user));
                     setTimeout(()=>{
                             navigate('/');
                     },1000);

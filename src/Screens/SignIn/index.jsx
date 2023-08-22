@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import {useNavigate} from 'react-router-dom'
 import { Link } from "react-router-dom";
+import axios from "axios";
 import Swal from 'sweetalert2'
 import "./SignIn.scss"
 
@@ -22,18 +23,31 @@ const SignIn = ({setSigned}) =>{
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
-        const localData = JSON.parse(sessionStorage.getItem('Users'));
-        localData.filter((elem)=>{
-            (elem.email == user.email && elem.password == user.password)?
-            navigate('/'):
-            setSigned(true);
-            Swal.fire({
-                icon: 'error',
-                title: 'User Not found',
-                // text: 'User Not Found',
-                // footer: '<a href="">Why do I have this issue?</a>'
-            })
-        })
+        try{
+            const response = await axios.post('http://localhost:5000/Auth/SignIn',user);
+            console.log(response);
+            if(response.data.success == true){
+                navigate('/');
+                setSigned(true);
+                localStorage.setItem('user',JSON.stringify(response.data.data));
+            }
+            else{
+                alert("Account not found try signUp");
+            }
+        }
+        catch(err){
+            console.log(err);
+        }
+        // const localData = JSON.parse(sessionStorage.getItem('Users'));
+        // localData.filter((elem)=>{
+        //     (elem.email == user.email && elem.password == user.password)?
+        //     Swal.fire({
+        //         icon: 'error',
+        //         title: 'User Not found',
+        //         // text: 'User Not Found',
+        //         // footer: '<a href="">Why do I have this issue?</a>'
+        //     })
+        // })
     }
 
     return(

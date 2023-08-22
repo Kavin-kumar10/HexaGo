@@ -5,6 +5,7 @@ import Desc from './Screens/Desc';
 import SignIn from './Screens/SignIn';
 import SignUp from './Screens/SignUp';
 import Home from './Screens/Home';
+import Admin from './Screens/Admin';
 import { useEffect, useState } from 'react';
 import Form from './Components/Form';
 import { useDispatch,useSelector } from 'react-redux';
@@ -31,6 +32,7 @@ function App(){
             <Route path='/SignUp' element={<SignUp setSigned={setSigned}/>}/>
             <Route path='/SignIn' element={<SignIn setSigned={setSigned}/>}/>
             <Route path='/' element={<Home/>}/>
+            <Route path='/Admin' element={<Admin/>}/>
             <Route  path='/Upcomming' element={<Upcomming signed={signed} pop={pop} setPop={setPop}/>}/>
             <Route path='/Product/:id' element={<Desc signed={signed} pop={pop}/>}/>
         </Routes>
