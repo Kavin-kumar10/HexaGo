@@ -26,9 +26,13 @@ const Box = ({elem}) =>{
                 </div>
             </div>
             <div className="btn">
-                <Link to={`/Product/${elem._id}`}>
-                    <button>REGISTER</button>
-                </Link>
+                {
+                    (elem.status == 1)?
+                    <Link to={`/Product/${elem._id}`}>
+                        <button>REGISTER</button>
+                    </Link>:
+                    <button disabled style={{opacity:0.5}}>Pending</button>
+                }
                    <p>Minimum Estimate: ${elem.minimum}</p>
             </div>
         </div>

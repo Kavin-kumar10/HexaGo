@@ -16,7 +16,9 @@ const Header = ({setPop}) =>{
                 <Link to="/Upcomming" style={{textDecoration:"none"}}>
                     <li>Upcomming auctions</li>
                 </Link>
-                <li>My Products</li>
+                <Link to="/Myproducts" style={{textDecoration:"none"}}>
+                    <li>My Products</li>
+                </Link>
                 <li onClick={()=>{setPop(true)}}>Sell</li>
                 <li>Chat</li>
                 <li id="profile">{JSON.parse(localStorage.getItem('user')).Username}</li>

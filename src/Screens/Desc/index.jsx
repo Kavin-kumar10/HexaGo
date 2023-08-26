@@ -1,12 +1,14 @@
 import React,{useState} from "react";
 import { useParams } from "react-router-dom";
 import Header from "../../Components/Header";
+import { ToastContainer, toast } from 'react-toastify';
+import { useDispatch } from "react-redux";
+import { getProducts } from "../../Redux/ProductSlice";
+import Swal from 'sweetalert2'
+
+import 'react-toastify/dist/ReactToastify.css';
 import Form from "../../Components/Form";
 import {
-    FacebookShareButton,
-    FacebookIcon,
-    InstapaperIcon,
-    InstapaperShareButton,
     LinkedinShareButton,
     LinkedinIcon,
     TelegramShareButton,
@@ -18,13 +20,63 @@ import {
   } from "react-share";
 import "./Desc.scss"
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 const Desc = ({setPop}) =>{
+    const dispatch = useDispatch();
+
+    const [bid,setBid] = useState(0);
+
+    //Data 
     const AllProducts = useSelector((state)=>state.Products.AllProducts);
     const param = useParams();
-    console.log(param);
     const Elem = AllProducts.find(item => item._id == param.id)
     console.log(Elem);
+
+    //Bid handle
+    const handleBid = (e) =>{
+        e.preventDefault();
+        if(JSON.parse(Elem.minimum)>bid || Elem.latestBid>bid){
+            toast.error('Bidding value must be greater than the bid', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
+        }
+        else{
+            Swal.fire({
+                title: 'Are you sure you wanna bid?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, accept Bid!'
+              }).then(async(result) => {
+                if (result.isConfirmed) {
+                    try{       
+                        const response = await axios.patch(`http://localhost:5000/Products/BidUpdate/${Elem._id}`,{latestBid:bid,latestMem:JSON.parse(localStorage.getItem('user')).Username}) 
+                        console.log(response);
+                        dispatch(getProducts);
+                        Swal.fire(
+                            'Bidding Successful!',
+                            'You are the top candidate now!!!',
+                            'success'
+                        )
+                    }
+                    catch(err){
+                        console.log(err);
+                    }
+                }
+              })
+        }
+    }
+
     return(
         <div className="Desc">
             <Header setPop={setPop}/>
@@ -65,12 +117,14 @@ const Desc = ({setPop}) =>{
                         <p>{Elem.description}</p>
                     </div>
                     <div className="latest">
-                        <h2>Latest bid : $500 &nbsp;<span>by kiran</span></h2>
+                        <h2>Latest bid : ${Elem.latestBid} &nbsp;<span>by {Elem.latestMem}</span></h2>
                         <br />
                         <div className="latest_btn">
-                            <button>Bid Now</button>
-                            <button>Contact Seller</button>
-                            <p>Must be greater <br /> than latest bid</p>
+                            <form onSubmit={(e)=>{handleBid(e)}}>
+                                <input type="number" value={bid} onChange={(e)=>setBid(e.target.value)}/>
+                                <button>Bid Now</button>
+                            </form>
+                             <p>Must be greater <br /> than latest bid</p>
                         </div>
                     </div>
                 </div>

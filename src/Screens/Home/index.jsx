@@ -5,10 +5,10 @@ import Carousel_comp from "../../Components/Carousel_comp";
 import Card from "../../Components/Card";
 import { bg } from "../../Assets";
 
-const Home = () =>{
+const Home = ({setPop}) =>{
     return(
         <div className="Home">
-            <Header/>
+            <Header setPop={setPop}/>
             <Carousel_comp/>
             <div className="Trending">
                 <h1>Trending Auction</h1>

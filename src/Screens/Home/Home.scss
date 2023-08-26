@@ -46,7 +46,7 @@
             font-weight: 900;
             &_top{
                 h1{
-                    color: var(--primary-color);
+                    color: var(--bright-color);
                 }
                 .layer_line{
                     height: 10px;
@@ -56,7 +56,7 @@
             }
             &_bot{
                 p{
-                    color: var(--primary-color);
+                    color: var(--bright-color);
                     font-size: 20px;
                     margin: 20px 0px;
                 }

@@ -3,13 +3,22 @@
         border-radius: 20px;
         height: 90vh;
         width: 98vw;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        h1{
-            font-size: 150px;
-            font-weight: 900;
-            color: white;
+        .cover{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            &:hover{
+                background-color: rgba(0, 0, 0, 0.7);
+                transition: all 0.2s linear;
+            }
+            h1{
+                font-size: 150px;
+                font-weight: 900;
+                color: white;
+            }
         }
     }
 }

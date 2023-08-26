@@ -13,7 +13,7 @@ const ProductSlice = createSlice({
     name:"Products",
     initialState:{
         Product:{
-            username:JSON.parse(localStorage.getItem('user')).Username,
+            username:JSON.parse(localStorage.getItem('user'))?JSON.parse(localStorage.getItem('user')).Username:"",
             origin:"",
             title:"",
             description:"",

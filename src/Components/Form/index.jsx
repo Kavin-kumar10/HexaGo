@@ -77,7 +77,7 @@ const Form = ({setPop}) =>{
                     <h1>Sell Your Product</h1>
                     <RxCross1 size={30} onClick={()=>setPop(false)} id="icon"/>
                 </div>
-                <form onSubmit={(e)=>handleSubmit(e)}>
+                <form onSubmit={(e)=>handleSubmit(e)} enctype="multipart/form-data">
                     <div className="form_left">
                         <div className="form_elem">
                             <label htmlFor="Origin">Country of Origin:</label>
@@ -146,7 +146,7 @@ const Form = ({setPop}) =>{
                                 setImage(e.target.files[0]);
                                 console.log(Image);
                                 // handleImageSelect();
-                            }} type="file" id="Picture" style={{display:"none"}} name="picture"/>
+                            }} type="file" id="Picture" style={{display:"none"}} name="image"/>
                         </div>
                         
                         <div className="form_btn">
