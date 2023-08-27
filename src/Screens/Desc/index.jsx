@@ -1,11 +1,11 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import Header from "../../Components/Header";
 import { ToastContainer, toast } from 'react-toastify';
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { getProducts } from "../../Redux/ProductSlice";
+import { Navigate } from "react-router-dom";
 import Swal from 'sweetalert2'
-
 import 'react-toastify/dist/ReactToastify.css';
 import Form from "../../Components/Form";
 import {
@@ -19,19 +19,22 @@ import {
     WhatsappShareButton,
   } from "react-share";
 import "./Desc.scss"
-import { useSelector } from "react-redux";
 import axios from "axios";
 
-const Desc = ({setPop}) =>{
+const Desc = ({setPop,signed}) =>{
     const dispatch = useDispatch();
-
     const [bid,setBid] = useState(0);
 
     //Data 
     const AllProducts = useSelector((state)=>state.Products.AllProducts);
+    console.log(AllProducts);
     const param = useParams();
-    const Elem = AllProducts.find(item => item._id == param.id)
-    console.log(Elem);
+    const [Elem,setElem] = useState();
+    let item = AllProducts?.find(item => item._id == param.id);
+    console.log(item);
+    useEffect(()=>{
+        setElem(item);
+    })
 
     //Bid handle
     const handleBid = (e) =>{
@@ -76,8 +79,11 @@ const Desc = ({setPop}) =>{
               })
         }
     }
-
+    if(!signed){
+        return<Navigate to="/Signup"/>
+    }
     return(
+        (!Elem)?null:
         <div className="Desc">
             <Header setPop={setPop}/>
 

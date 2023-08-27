@@ -6,11 +6,14 @@ import Aside from "./Aside";
 import { Navigate } from "react-router-dom";
 import Form from "../../Components/Form";
 import Counter from "../../Components/Counter";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
+import { searchRed } from "../../Redux/ProductSlice";
+
 
 const Upcomming = ({signed,pop,setPop}) =>{
-    const AllProducts = useSelector((state)=>state.Products.AllProducts);
-    console.log(AllProducts);
+    const ReqProducts = useSelector((state)=>state.Products.ReqProducts);
+    const dispatch = useDispatch();
+    console.log(ReqProducts);
     // const [products,setProducts] = useState([
     // {
     //     title: 'Bottle of Guardian - (ancient decoration used by britain)',
@@ -43,10 +46,13 @@ const Upcomming = ({signed,pop,setPop}) =>{
             <div className="Container">
                 <Aside/>
                 <div className="Home_main">
-                   <input type="text" placeholder="Search"/>
+                   <input type="text" placeholder="Search" onChange={(e)=>{
+                        let value = e.target.value;
+                        dispatch(searchRed({value}))
+                   }}/>
                     <div className="box_container">
                         {
-                            AllProducts.map((elem)=>{
+                            ReqProducts.map((elem)=>{
                                 // console.log(elem);
                                 return(
                                     <Box elem={elem} key={elem.title}/>

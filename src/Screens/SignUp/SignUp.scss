@@ -1,13 +1,15 @@
 
 .SignUp{
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
     .poster{
         background-color: var(--tertiary-color);
         width: 50%;
-        height: 100%;
+        height: 90%;
+        border-radius: 12px;
         display: flex;
+        align-self: center;
         align-items: center;
         justify-content: center;
         flex-direction: column;
