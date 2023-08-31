@@ -100,17 +100,28 @@
                 color: var(--primary-color);
                 border: none;
                 outline: none;
-                font-size: clamp(1vw,1.2vw,50px);
+                font-size: clamp(1vw,1.5vw,50px);
                 border-radius: 10px;
-                width: clamp(100px,10vw,10vw);
-                height: 2.5vw;
-                margin: 20px 0px;
+                width: clamp(100px,8vw,10vw);
+                padding: 5px 0px;
+                margin: 30px 0px;
             }
             p{
                 span{
                     color: blue;
                 }
             }
+        }
+    }
+}
+
+@media screen and (max-width:1000px){
+    .SignUp{
+        .poster{
+            display: none;
+        }
+        .SignForm{
+            width: 100%;
         }
     }
 }

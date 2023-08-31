@@ -72,7 +72,7 @@ const SignUp = ({setSigned}) =>{
                         <div className="line"></div>
                     </div>
                     <div className="agree">
-                        <input type="checkbox"/>
+                        <input type="checkbox" required/>
                         <p>I agree to all policy</p>
                     </div>
                     <button type="submit" >SignUp</button>

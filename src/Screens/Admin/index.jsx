@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { getProducts } from "../../Redux/ProductSlice";
+import AdminCard from "./AdminCard";
 import { Link } from "react-router-dom";
 import "./Admin.scss"
 
@@ -11,29 +12,7 @@ const Admin =  () =>{
     const dispatch = useDispatch();
     const [select,setSelect] = useState("inbox");
 
-    const handleApprove = async(elem) =>{
-        try{
-            console.log(`http://localhost:5000/Products/Accept/${elem._id}`);
-            const response = await axios.put(`http://localhost:5000/Products/Accept/${elem._id}`);
-            dispatch(getProducts());
-            console.log(response);
-        }
-        catch(err){
-            console.log(err);
-        }
-    }
 
-    const handleReject = async(elem) =>{
-        try{
-            console.log(`http://localhost:5000/Products/Decline/${elem._id}`);
-            const response = await axios.put(`http://localhost:5000/Products/Decline/${elem._id}`);
-            dispatch(getProducts());
-            console.log(response);
-        }
-        catch(err){
-            console.log(err);
-        }
-    }
 
     return(
         <div className="Admin">
@@ -48,35 +27,32 @@ const Admin =  () =>{
                     <li id="profile">{JSON.parse(localStorage.getItem('user')).Username}</li>
                 </ul>
             </div>
-            {
-                products.map((elem)=>{
-                    if(elem.status == -1 && select == "inbox"){
-                        return(
-                            <>
-                            <h1>{elem.title}</h1>
-                            <button onClick={()=>handleApprove(elem)}>Accept</button>
-                            <button>Preview</button>
-                            <button onClick={()=>handleReject(elem)}>Decline</button>
-                            </>
-                        )
+            <div className="Admin_topic">
+                <h1>Inbox - ( Pending Request )</h1>
+                <div className="top_line"></div>
+            </div>
+            <div className="AdminContainer">
+                {
+                    products.map((elem)=>{
+                        if(elem.status == -1 && select == "inbox"){
+                            return(
+                                <AdminCard elem={elem}/>
+                            )
+                        }
+                        else if(elem.status == 1 && select == "Accepted"){
+                            return(
+                                <AdminCard elem={elem}/>
+                            )
+                        }
+                        else if(elem.status == 0 && select == "Rejected"){
+                            return(
+                                <AdminCard elem={elem}/>
+                            )
+                        }
                     }
-                    else if(elem.status == 1 && select == "Accepted"){
-                        return(
-                            <>
-                                <h1>{elem.title}</h1>
-                            </>
-                        )
-                    }
-                    else if(elem.status == 0 && select == "Rejected"){
-                        return(
-                            <>
-                                <h1>{elem.title}</h1>
-                            </>
-                        )
-                    }
+                    )
                 }
-                )
-            }
+            </div>
         </div>
     )
 }

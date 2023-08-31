@@ -15,14 +15,16 @@ import Myproducts from './Screens/Myproducts';
 import Header from './Components/Header';
 
 function App(){
+
+  //declarations
   const dispatch = useDispatch();
+  const [signed,setSigned] = useState(true);
   
-  //axios call 
+  //axios call on every dispatch
   useEffect(()=>{
     dispatch(getProducts());
   },[dispatch])
   
-  const [signed,setSigned] = useState(true);
   
   useEffect(()=>{
       if(!JSON.parse(localStorage.getItem('user'))){
