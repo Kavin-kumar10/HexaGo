@@ -62,6 +62,8 @@
                     text-decoration: none;
                     transition:all 0.1s linear;
                     background-color: var(--primary-color);
+                    color: var(--secondary-color) !important;
+                    cursor: pointer;
                 }
                 &:hover>*{
                     color: var(--secondary-color) !important;

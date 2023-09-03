@@ -3,16 +3,28 @@ import "./Myproducts.scss"
 import { useDispatch,useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Header from '../../Components/Header'
+import Schedule from '../../Components/Schedule'
 import { searchRed } from '../../Redux/ProductSlice'
 
 const Myproducts = ({setPop}) =>{
+
+    //handle pop
+    const [schedpop,setSchedpop] = useState(false);
+
     const AllProducts = useSelector((state)=>state.Products.AllProducts);
     const products = AllProducts.filter((elem)=>elem.username == JSON.parse(localStorage.getItem('user')).Username)
     const dispatch = useDispatch();
     console.log(JSON.parse(localStorage.getItem('user')).Username);
+
+    
     return(
         <div className="Myproducts">
             <Header setPop={setPop}/>
+            {
+                (schedpop)?
+                <Schedule setSchedpop={setSchedpop}/>:
+                null
+            }
             <div className="Myproducts_top">
                 <h1>My Products</h1>
                 <div className="line"></div>
@@ -32,7 +44,7 @@ const Myproducts = ({setPop}) =>{
                                     </div>
                                 </div>
                                 {
-                                    (elem.status == -1)?<span id='pend'><Link>Schedule Now</Link></span>:(elem.status == 1)?<span id='app'>Approved</span>:<span id='rej'>Rejected</span>
+                                    (elem.status == -1)?<span id='pend' onClick={()=>setSchedpop(true)}>Schedule Now</span>:(elem.status == 1)?<span id='app'>Approved</span>:<span id='rej'>Rejected</span>
                                 }
                             </div>
                         )

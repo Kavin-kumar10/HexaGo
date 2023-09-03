@@ -46,7 +46,7 @@ const AdminCard = ({elem}) =>{
                 <div className="AdminCard_bottom">
                     <button id="Preview">Preview</button>
                     <div className="status">
-                        <button id="Accept">Accept</button>
+                        <button id="Accept" onClick={()=>handleApprove(elem)}>Accept</button>
                         <button id="Reject">Reject</button>
                     </div>
                 </div>
