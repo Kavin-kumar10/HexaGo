@@ -2,13 +2,15 @@ import {configureStore,getDefaultMiddleware,combineReducers} from '@reduxjs/tool
 import logger from 'redux-logger'
 import UserSlice from './UserSlice';
 import ProductSlice from './ProductSlice'
+import Adminslice from './Adminslice';
 
 
 const middleware = [...getDefaultMiddleware(),logger];
 
 const reducer = combineReducers({
     Products:ProductSlice,
-    Users:UserSlice
+    Users:UserSlice,
+    Admin:Adminslice
 })
 
 

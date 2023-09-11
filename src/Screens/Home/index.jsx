@@ -3,9 +3,13 @@ import Header from "../../Components/Header";
 import "./Home.scss"
 import Carousel_comp from "../../Components/Carousel_comp";
 import Card from "../../Components/Card";
+import { Navigate } from "react-router-dom";
 import { bg } from "../../Assets";
 
-const Home = ({setPop}) =>{
+const Home = ({signed,setPop}) =>{
+    if(signed){
+        return<Navigate to="/Signup"/>
+    }
     return(
         <div className="Home">
             <Header setPop={setPop}/>

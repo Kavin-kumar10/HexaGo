@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 import Form from './Components/Form';
 import { useDispatch,useSelector } from 'react-redux';
 import { getProducts } from './Redux/ProductSlice';
+import { getAdmin } from './Redux/Adminslice';
 import Myproducts from './Screens/Myproducts';
 import Header from './Components/Header';
 
@@ -18,34 +19,34 @@ function App(){
 
   //declarations
   const dispatch = useDispatch();
-  const [signed,setSigned] = useState(true);
+  const [signed,setSigned] = useState(false);
   
   //axios call on every dispatch
   useEffect(()=>{
     dispatch(getProducts());
+    dispatch(getAdmin());
   },[dispatch])
-  
   
   useEffect(()=>{
       if(!JSON.parse(localStorage.getItem('user'))){
-        localStorage.setItem('user',{Username:''})
+        localStorage.setItem('user',JSON.stringify({Username:''}))
         setSigned(false);
       }
   },[])
 
   const [pop,setPop] = useState(false);
 
-  return (
+  return(
     <Router>
       <div className="App">
-      {
+        {
           pop?
           <Form setPop={setPop}/>:null
         }
         <Routes>
             <Route path='/SignUp' element={<SignUp setSigned={setSigned}/>}/>
             <Route path='/SignIn' element={<SignIn setSigned={setSigned}/>}/>
-            <Route path='/' element={<Home pop={pop} setPop={setPop}/>} />
+            <Route path='/' element={<Home signed={signed} pop={pop} setPop={setPop}/>} />
             <Route path='/Admin' element={<Admin/>}/>
             <Route  path='/Upcomming' element={<Upcomming signed={signed} pop={pop} setPop={setPop}/>}/>
             <Route path='/Myproducts' element={<Myproducts setPop={setPop}/>}/>
