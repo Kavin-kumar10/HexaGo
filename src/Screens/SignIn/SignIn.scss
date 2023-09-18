@@ -118,6 +118,22 @@
         }
         .SignForm{
             width: 100%;
+            padding: 10px;
+            .heading{
+                h1{
+                    font-size: clamp(20px,6.2vw,10vw);
+                }
+                h4{
+                    font-size: clamp(15px,2.5vw,3vw);
+                }
+            }
+            form{
+                button{
+                    height: 5vh;
+                    width: 30vw;
+                    font-size: clamp(15px,2.5vw,3vw);
+                }
+            }
         }
     }
 }

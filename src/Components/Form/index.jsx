@@ -39,7 +39,7 @@ const Form = ({setPop}) =>{
         const imageData = new FormData();
         imageData.append('image',Image);
         console.log(product);
-        await axios.post('http://localhost:5000/uploads',imageData)
+        await axios.post('https://hexago.onrender.com/uploads',imageData)
         .then((res)=>{
             console.log(res);
             let name = 'img_url'
@@ -53,7 +53,7 @@ const Form = ({setPop}) =>{
     }
     useEffect(()=>{
         if(uploaded){
-            axios.post('http://localhost:5000/Products',product)
+            axios.post('https://hexago.onrender.com/Products',product)
             .then((res)=>{
                 console.log(res);
                 Swal.fire(

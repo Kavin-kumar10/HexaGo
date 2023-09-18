@@ -20,6 +20,13 @@ function App(){
   //declarations
   const dispatch = useDispatch();
   const [signed,setSigned] = useState(false);
+ 
+  useEffect(()=>{
+      if(!JSON.parse(localStorage.getItem('user'))){
+        localStorage.setItem('user',JSON.stringify({Username:''}))
+        setSigned(false);
+      }
+  },[])
   
   //axios call on every dispatch
   useEffect(()=>{
@@ -27,12 +34,6 @@ function App(){
     dispatch(getAdmin());
   },[dispatch])
   
-  useEffect(()=>{
-      if(!JSON.parse(localStorage.getItem('user'))){
-        localStorage.setItem('user',JSON.stringify({Username:''}))
-        setSigned(false);
-      }
-  },[])
 
   const [pop,setPop] = useState(false);
 

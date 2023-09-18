@@ -36,7 +36,7 @@ const Schedule = ({setSchedpop}) =>{
     const handleRequest = async (e) =>{
         e.preventDefault();
         try{
-            const response = await axios.patch('http://localhost:5000/Admin',{name:'kavin'});
+            const response = await axios.patch('https://hexago.onrender.com//Admin',{name:'kavin'});
             console.log(response);
         }
         catch(err){

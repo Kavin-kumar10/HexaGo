@@ -112,3 +112,10 @@
         }
     }
 }
+
+@media screen and (max-width:1200px){
+    .Box{
+        height: auto;
+        flex-direction: column;
+    }
+}

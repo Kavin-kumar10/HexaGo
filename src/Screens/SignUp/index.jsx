@@ -23,7 +23,7 @@ const SignUp = ({setSigned}) =>{
     const handleSubmit = async(e) =>{
         e.preventDefault();
         try{
-            const response = await axios.post('http://localhost:5000/Auth/SignUp',user);
+            const response = await axios.post('https://hexago.onrender.com/Auth/SignUp',user);
             console.log(response);
             if(response.data.success == true){
                 setSigned(true);

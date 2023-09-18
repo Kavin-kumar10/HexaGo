@@ -1,8 +1,12 @@
 import React,{useState,useEffect} from "react";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { getProducts } from "../../Redux/ProductSlice";
 import "./Counter.scss"
 
 
-const Counter = ({date}) =>{
+const Counter = ({elem,date}) =>{
+  const dispatch = useDispatch();
     const eventDate = new Date(date); // Replace with your event date and time
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
@@ -13,10 +17,19 @@ const Counter = ({date}) =>{
     return time < 10 ? `0${time}` : time;
   };
 
-  const updateCountdown = () => {
+  const updateCountdown = async() => {
     const currentTime = new Date();
     const timeDifference = eventDate - currentTime;
-    // console.log(timeDifference);
+    if (timeDifference == 0 || timeDifference < 1000) {
+      try{       
+          const response = await axios.patch(`https://hexago.onrender.com/Products/BidUpdate/${elem._id}`,{finalBid:elem.latestBid,status:10}) 
+          console.log(response);
+          dispatch(getProducts);
+      }
+      catch(err){
+          console.log(err);
+      }
+  }
 
     const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
