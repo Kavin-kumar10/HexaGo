@@ -7,9 +7,9 @@ import { Navigate } from "react-router-dom";
 import { bg } from "../../Assets";
 
 const Home = ({signed,setPop}) =>{
-    // if(!signed){
-    //     return<Navigate to="/Signup"/>
-    // }
+    if(!signed){
+        return<Navigate to="/Signup"/>
+    }
     return(
         <div className="Home">
             <Header setPop={setPop}/>
