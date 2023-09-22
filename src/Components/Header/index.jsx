@@ -20,7 +20,7 @@ const Header = ({setPop}) =>{
                     <li>My Products</li>
                 </Link>
                 <li onClick={()=>{setPop(true)}}>Sell</li>
-                <li>Chat</li>
+                {/* <li>Chat</li> */}
                 <li id="profile">{JSON.parse(localStorage.getItem('user')).Username}</li>
             </ul>
         </div>
