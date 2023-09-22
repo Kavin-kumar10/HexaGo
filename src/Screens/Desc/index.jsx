@@ -63,7 +63,7 @@ const Desc = ({setPop,signed}) =>{
               }).then(async(result) => {
                 if (result.isConfirmed) {
                     try{       
-                        const response = await axios.patch(`https://hexago.onrender.com//Products/BidUpdate/${Elem._id}`,{latestBid:bid,latestMem:JSON.parse(localStorage.getItem('user')).Username}) 
+                        const response = await axios.patch(`https://hexago.onrender.com/Products/BidUpdate/${Elem._id}`,{latestBid:bid,latestMem:JSON.parse(localStorage.getItem('user')).Username}) 
                         console.log(response);
                         dispatch(getProducts);
                         Swal.fire(

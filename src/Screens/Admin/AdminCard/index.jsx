@@ -10,8 +10,8 @@ const AdminCard = ({elem}) =>{
 
     const handleApprove = async(elem) =>{
         try{
-            console.log(`https://hexago.onrender.com//Products/Accept/${elem._id}`);
-            const response = await axios.put(`https://hexago.onrender.com//Products/Accept/${elem._id}`);
+            console.log(`https://hexago.onrender.com/Products/Accept/${elem._id}`);
+            const response = await axios.put(`https://hexago.onrender.com/Products/Accept/${elem._id}`);
             dispatch(getProducts());
             console.log(response);
         }
@@ -22,8 +22,8 @@ const AdminCard = ({elem}) =>{
 
     const handleReject = async(elem) =>{
         try{
-            console.log(`https://hexago.onrender.com//Products/Decline/${elem._id}`);
-            const response = await axios.put(`https://hexago.onrender.com//Products/Decline/${elem._id}`);
+            console.log(`https://hexago.onrender.com/Products/Decline/${elem._id}`);
+            const response = await axios.put(`https://hexago.onrender.com/Products/Decline/${elem._id}`);
             dispatch(getProducts());
             console.log(response);
         }
