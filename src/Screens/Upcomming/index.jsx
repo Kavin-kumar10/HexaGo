@@ -37,9 +37,9 @@ const Upcomming = ({signed,pop,setPop}) =>{
     // },
     // ]);
 
-    if(!signed){
-        return<Navigate to="/Signup"/>
-    }
+    // if(!signed){
+    //     return<Navigate to="/Signup"/>
+    // }
     return(
         <div className="Upcomming">
             <Header setPop={setPop}/>

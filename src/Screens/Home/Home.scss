@@ -4,6 +4,56 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    .banner{
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        h1{
+            font-size: 200px;
+            font-weight: bolder;
+            span{
+                color: var(--tertiary-color);
+            }
+        }
+        p{
+            font-size: 40px;
+            width: 70%;
+            text-align: center;
+            margin: 20px;
+            span{
+                color: var(--tertiary-color);
+            }
+        }
+        .btns{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            button{
+                margin: 20px;
+                width: 200px;
+                border-radius: 12px;
+                outline: none;
+                border: none;
+                font-size: clamp(15px,1.2vw,2vw);
+                font-weight:bolder;
+                height: 60px;
+                &:hover{
+                    border: 1px solid black;
+                    transition: all 0.2s linear;
+                }
+                &:nth-child(2){
+                    background-color: var(--tertiary-color);
+                    &:hover{
+                        border: 1px solid var(--tertiary-color);
+                        background-color: white;
+                        transition: all 0.2s linear;
+                    }
+                }
+            }
+        }
+    }
     .Trending{
         min-height:80vh;
         width: 100%;

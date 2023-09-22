@@ -39,7 +39,7 @@ const Management = () =>{
                         <div className="Member">
                             <h3>{Admin.Username}</h3>
                             <h4>{Admin.email}</h4>
-
+                            
                         </div>   
                     )
                 }

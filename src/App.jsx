@@ -28,6 +28,10 @@ function App(){
         localStorage.setItem('user',JSON.stringify({Username:''}))
         setSigned(false);
       }
+      else{
+        console.log(localStorage.getItem('user'));
+        setSigned(true);
+      }
   },[])
   
   //axios call on every dispatch
