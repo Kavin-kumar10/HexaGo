@@ -38,7 +38,7 @@ const SignIn = ({setSigned,setAdminSign}) =>{
                 }
             }
             else if(Role == "Admin"){
-                const response = await axios.post('http://localhost:5000/Admin/SignIn',user);
+                const response = await axios.post('https://hexago.onrender.com/Admin/SignIn',user);
                 console.log(response);
                 if(response.data.success == true){
                     console.log("entered");

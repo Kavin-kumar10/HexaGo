@@ -8,7 +8,7 @@ const Management = () =>{
     const Admins = useSelector((state)=>state.Admin.AllAdmin);
     const getUsers = async() =>{
         try{
-            const Response = await axios.get('http://localhost:5000/Auth');
+            const Response = await axios.get('https://hexago.onrender.com//Auth');
             console.log(Response.data);
         }
         catch(err){
