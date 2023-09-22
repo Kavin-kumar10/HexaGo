@@ -7,6 +7,7 @@ import SignIn from './Screens/SignIn';
 import SignUp from './Screens/SignUp';
 import Home from './Screens/Home';
 import Admin from './Screens/Admin';
+import Management from './Screens/Management';
 import { useEffect, useState } from 'react';
 import Form from './Components/Form';
 import { useDispatch,useSelector } from 'react-redux';
@@ -20,6 +21,7 @@ function App(){
   //declarations
   const dispatch = useDispatch();
   const [signed,setSigned] = useState(false);
+  const [adminSign,setAdminSign] = useState(false);
  
   useEffect(()=>{
       if(!JSON.parse(localStorage.getItem('user'))){
@@ -45,12 +47,13 @@ function App(){
           <Form setPop={setPop}/>:null
         }
         <Routes>
-            <Route path='/SignUp' element={<SignUp setSigned={setSigned}/>}/>
-            <Route path='/SignIn' element={<SignIn setSigned={setSigned}/>}/>
+            <Route path='/SignUp' element={<SignUp setSigned={setSigned} />}/>
+            <Route path='/SignIn' element={<SignIn setSigned={setSigned} setAdminSign={setAdminSign}/>}/>
             <Route path='/' element={<Home signed={signed} pop={pop} setPop={setPop}/>} />
-            <Route path='/Admin' element={<Admin/>}/>
+            <Route path='/Admin' element={<Admin adminSign={adminSign}/>}/>
             <Route  path='/Upcomming' element={<Upcomming signed={signed} pop={pop} setPop={setPop}/>}/>
             <Route path='/Myproducts' element={<Myproducts setPop={setPop}/>}/>
+            <Route path='/Management' element={<Management/>}/>
             <Route path='/Product/:id' element={<Desc signed={signed} pop={pop}/>}/>
         </Routes>
       </div>

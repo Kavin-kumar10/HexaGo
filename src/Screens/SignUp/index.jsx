@@ -53,7 +53,7 @@ const SignUp = ({setSigned}) =>{
             <div className="SignForm">
                 <div className="heading">
                     <h1>Kickstart your business here</h1>
-                    <h4>We help you make your life fruiteful</h4>
+                    <h4>We help you make your life fruitful</h4>
                 </div>
                 <form onSubmit={(e)=>handleSubmit(e)} action="/">
                     <div className="Data_entry">

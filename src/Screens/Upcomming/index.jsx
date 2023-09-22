@@ -37,7 +37,6 @@ const Upcomming = ({signed,pop,setPop}) =>{
     // },
     // ]);
 
-    
     if(!signed){
         return<Navigate to="/Signup"/>
     }

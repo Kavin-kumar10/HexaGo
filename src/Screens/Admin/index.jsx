@@ -4,16 +4,19 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { getProducts } from "../../Redux/ProductSlice";
 import AdminCard from "./AdminCard";
+import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./Admin.scss"
 
-const Admin =  () =>{
+const Admin =  ({adminSign}) =>{
     const products = useSelector((state)=>state.Products.AllProducts)
     const dispatch = useDispatch();
     const [select,setSelect] = useState("inbox");
 
 
-
+    if(!adminSign){
+        return<Navigate to="/Signup"/>
+    }
     return(
         <div className="Admin">
             <div className="Admin_head">

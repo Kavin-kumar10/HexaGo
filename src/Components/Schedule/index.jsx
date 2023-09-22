@@ -75,7 +75,7 @@ const Schedule = ({setSchedpop}) =>{
                             <Popup>
                                 <div className="selector">
                                     <h3>
-                                        Admin name : {Admin.name}
+                                        Admin name : {Admin.Username}
                                     </h3>
                                     <h4>Available</h4>
                                     <button onClick={()=>{
@@ -89,7 +89,7 @@ const Schedule = ({setSchedpop}) =>{
                 }
                 </MapContainer>
                 <form className="Schedule_bottom" onSubmit={handleRequest}>
-                    <h3>Admin : <span>{Select.name}</span></h3>
+                    <h3>Admin : <span>{Select.Username}</span></h3>
                     <div className="Schedule_btn">
                             <button id="Cancel" type="reset" onClick={()=>{setSchedpop(false)}}>Cancel</button>
                             <button type="submit">Request Schedule</button>

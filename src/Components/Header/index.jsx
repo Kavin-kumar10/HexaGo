@@ -1,5 +1,6 @@
 import React from "react";
 import "./Header.scss";
+import { logo } from "../../Assets";
 import { Link } from "react-router-dom";
 
 const Header = ({setPop}) =>{
@@ -8,6 +9,7 @@ const Header = ({setPop}) =>{
         <div className="Header">
             <div className="logo">
                 <h1>Hexa<span>Go</span></h1>
+                {/* <img src={logo} alt="logo" /> */}
             </div>
             <ul>
                 <Link to="/" style={{textDecoration:'none'}}>
