@@ -12,7 +12,7 @@ const Admin =  ({adminSign}) =>{
     const products = useSelector((state)=>state.Products.AllProducts)
     const dispatch = useDispatch();
     const [select,setSelect] = useState("inbox");
-
+    console.log(JSON.parse(localStorage.getItem('user')).Username);
 
     if(!adminSign){
         return<Navigate to="/Signup"/>
@@ -36,8 +36,9 @@ const Admin =  ({adminSign}) =>{
             </div>
             <div className="AdminContainer">
                 {
-                    products.map((elem)=>{
-                        if(elem.status == -1 && select == "inbox"){
+                    products.filter(item => item.ScheduledAdmin == JSON.parse(localStorage.getItem('user')).Username).map((elem)=>{
+                        console.log(elem);
+                        if(elem.status == -1 && select == "inbox" ){
                             return(
                                 <AdminCard elem={elem}/>
                             )

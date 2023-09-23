@@ -45,9 +45,13 @@
                 font-size: clamp(20px,1.3vw,2vw);
             }
             span{
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 padding: 12px;
                 color: var(--primary-color);
                 border-radius: 5px;
+                width: 200px;
                 font-size: clamp(15px,1.1vw,2vw);
                 &>*{
                     text-decoration: none;
@@ -77,6 +81,10 @@
             }
             #Com{
                 background-color: rgb(0, 91, 128);
+            }
+            #Sched{
+                background-color: var(--secondary-color);
+                opacity: 0.5;
             }
             &:nth-child(2n+1){
                 background-color:rgba(225, 225, 225, 0.5);

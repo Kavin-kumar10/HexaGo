@@ -10,19 +10,19 @@ const Myproducts = ({setPop}) =>{
 
     //handle pop
     const [schedpop,setSchedpop] = useState(false);
+    const [Pro,setPro] = useState();
 
     const AllProducts = useSelector((state)=>state.Products.AllProducts);
     const products = AllProducts.filter((elem)=>elem.username == JSON.parse(localStorage.getItem('user')).Username)
     const dispatch = useDispatch();
     console.log(JSON.parse(localStorage.getItem('user')).Username);
-
     
     return(
         <div className="Myproducts">
             <Header setPop={setPop}/>
             {
                 (schedpop)?
-                <Schedule setSchedpop={setSchedpop}/>:
+                <Schedule Pro={Pro}  setSchedpop={setSchedpop}/>:
                 null
             }
             <div className="Myproducts_top">
@@ -44,7 +44,7 @@ const Myproducts = ({setPop}) =>{
                                     </div>
                                 </div>
                                 {
-                                    (elem.status == -1)?<span id='pend' onClick={()=>setSchedpop(true)}>Schedule Now</span>:(elem.status == 1)?<span id='app'>Approved</span>:(elem.status == 10)?<span id='Com'>Auction Completed</span>:<span id='rej'>Rejected</span>
+                                    (elem.status == -1)?<span id='pend' onClick={()=>{setSchedpop(true);setPro(elem);}}>Schedule Now</span>:(elem.status == 1)?<span id='app'>Approved</span>:(elem.status == 10)?<span id='Com'>Auction Completed</span>:(elem.status == 5)?<span id='Sched'>Scheduled</span>:<span id='rej'>Rejected</span>
                                 }
                             </div>
                         )

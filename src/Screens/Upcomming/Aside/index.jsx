@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector,useDispatch } from "react-redux";
-import { searchRed } from "../../../Redux/ProductSlice";
+import { filterStatus } from "../../../Redux/ProductSlice";
 import "./Aside.scss"
 
 const Aside = () =>{
@@ -16,14 +16,17 @@ const Aside = () =>{
             <div className="Date_filter">
                 <h3>Catagory</h3>
                 <div className="line"></div>
-                <select className="filter_box">
+                <select className="filter_box" onChange={(e)=>{
+                    let value = e.target.value;
+                    dispatch(filterStatus({value}))
+                }}>
                         <option value="">Select Catagory</option>
-                        <option value="Pending">Pending</option>
-                        <option value="Live">Live</option>
-                        <option value="Completed">Completed</option>
+                        <option value={-1}>Pending</option>
+                        <option value={1}>Live</option>
+                        <option value={10}>Completed</option>
                 </select>
             </div>
-            <div className="Category_filter">
+            {/* <div className="Category_filter">
                 <h3>Category</h3>
                 <div className="line"></div>
                 <div className="filter_box">
@@ -36,7 +39,7 @@ const Aside = () =>{
                 <div className="filter_box">
                     Select Location
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

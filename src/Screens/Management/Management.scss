@@ -30,20 +30,25 @@
             align-items: center;
             margin-right:20px;
             border-radius: 10px;
-            border: 2px solid grey;
+            border: 2px solid var(--secondary-color);
             padding: 20px 10px;
-            background-color: grey;
+            background-color: var(--secondary-color);
             height: 40px;
+            color: white;
+            cursor: pointer;
+            &:hover{
+                background-color: var(--primary-color);
+                color: var(--secondary-color);
+                transition: all 0.1s linear;
+            }
             #icon{
                 width: 30px;
                 height: auto;
                 padding: 2px;
-                color: white;
                 border-radius: 100%;
-                border: 2px solid grey;
+                border: 2px solid var(--secondary-color);
             }
             h2{
-                color: white;
                 font-size: 20px;
                 display: flex;
                 align-items: center;
@@ -53,16 +58,25 @@
             }
         }
     }
-    .Members{
+    #table{
         margin: 20px 0px;
-        overflow-y: scroll;
-        .Member{
-            margin: 5px 0px;
-            display: flex;
-            align-items: center;
-            padding: 10px 0px;
-            h3{
-                width: 40vw;
+        border-collapse: separate !important;
+        border-radius: 12px;
+        th{
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        tr{
+            border-radius: 5px;
+            border: 1px solid black;
+            padding: 10px;
+            background-color: rgba;
+            margin: 20px;
+            td,th{
+                padding: 12px;
+            }
+            &:nth-child(2n){
+                background-color: rgba(225, 225, 225, 0.5);
             }
         }
     }

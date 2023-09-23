@@ -6,10 +6,11 @@ import 'leaflet/dist/leaflet.css'
 import markerIconPng from "leaflet/dist/images/marker-icon.png"
 import {Icon} from 'leaflet'
 import {IoCloseOutline} from 'react-icons/io5'
+import { getProducts } from "../../Redux/ProductSlice";
 import { MapContainer, TileLayer, useMap,Marker,Popup } from 'react-leaflet'
 
 
-const Schedule = ({setSchedpop}) =>{
+const Schedule = ({setSchedpop,Pro}) =>{
     const Admins = useSelector((state)=>state.Admin.AllAdmin)
     console.log(Admins);
     const [center,setCenter] = useState([11.127123, 78.656891]);
@@ -38,7 +39,9 @@ const Schedule = ({setSchedpop}) =>{
     const handleRequest = async (e) =>{
         e.preventDefault();
         try{
-            const response = await axios.patch('https://hexago.onrender.com/Admin',{name:'kavin'});
+            const response = await axios.patch(`https://hexago.onrender.com/Products/BidUpdate/${Pro._id}`,{ScheduledAdmin:Select.Username,status:5});
+            setSchedpop(false);
+            getProducts();
             console.log(response);
         }
         catch(err){

@@ -5,7 +5,6 @@ export const getProducts = createAsyncThunk('gets/getProducts',async () =>{
     return axios.get('https://hexago.onrender.com/Products').then((res)=>{
         return res.data;
     })
-
 })
 
 
@@ -51,11 +50,20 @@ const ProductSlice = createSlice({
                     if (objVal.includes(value.toLowerCase())) {
                         return obj;
                     }
-                    console.log(objVal);
                 }
             })
             state.search = value
             state.ReqProducts = result;
+        },
+        filterStatus:(state,action)=>{
+            const {value} = action.payload;
+            if(value == ""){
+                state.ReqProducts = state.AllProducts;
+            }else{
+                const result = state.AllProducts.filter(obj => obj.status == value);
+                state.search = value;
+                state.ReqProducts = result;
+            }
         }
     },
     extraReducers:{
@@ -73,6 +81,6 @@ const ProductSlice = createSlice({
     }
 })
 
-export const {updateFormField,searchRed} = ProductSlice.actions;
+export const {updateFormField,searchRed,filterStatus} = ProductSlice.actions;
 
 export default ProductSlice.reducer

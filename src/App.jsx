@@ -13,6 +13,7 @@ import Form from './Components/Form';
 import { useDispatch,useSelector } from 'react-redux';
 import { getProducts } from './Redux/ProductSlice';
 import { getAdmin } from './Redux/Adminslice';
+import { getUsers } from './Redux/UserSlice';
 import Myproducts from './Screens/Myproducts';
 import Header from './Components/Header';
 
@@ -38,6 +39,7 @@ function App(){
   useEffect(()=>{
     dispatch(getProducts());
     dispatch(getAdmin());
+    dispatch(getUsers());
   },[dispatch])
   
 
@@ -66,3 +68,10 @@ function App(){
 }
 
 export default App;
+
+
+// status 1 - accepted
+// status 0 - rejected
+// status -1 - pending
+// status 10 - completed
+// status 5 - requested to schedule

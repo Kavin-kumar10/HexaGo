@@ -7,6 +7,7 @@ import "./AdminCard.scss"
 const AdminCard = ({elem}) =>{
     const products = useSelector((state)=>state.Products.AllProducts)
     const dispatch = useDispatch();
+    console.log(elem);
 
     const handleApprove = async(elem) =>{
         try{
@@ -47,20 +48,20 @@ const AdminCard = ({elem}) =>{
                     <button id="Preview">Preview</button>
                     <div className="status">
                         <button id="Accept" onClick={()=>handleApprove(elem)}>Accept</button>
-                        <button id="Reject">Reject</button>
+                        <button id="Reject" onClick={()=>handleReject(elem)}>Reject</button>
                     </div>
                 </div>
                 :(elem.status == 0)?
                 <div className="AdminCard_bottom">
                 <div className="status">
-                    <button id="Accept">Emergency Accept</button>
+                    <button id="Accept" onClick={()=>handleApprove(elem)}>Emergency Accept</button>
                     <button id="Preview" style={{margin:"0px 10px"}}>Preview</button>
                 </div>
                 </div>
                 :
                 <div className="AdminCard_bottom">
                     <div className="status">
-                        <button id="Reject">Emergency Reject</button>
+                        <button id="Reject" onClick={()=>handleReject(elem)}>Emergency Reject</button>
                         <button style={{margin:"0px 10px"}} id="Preview">Preview</button>
                     </div>
                 </div>

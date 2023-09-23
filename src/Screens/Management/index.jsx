@@ -6,17 +6,8 @@ import axios from "axios";
 
 const Management = () =>{
     const Admins = useSelector((state)=>state.Admin.AllAdmin);
-    const getUsers = async() =>{
-        try{
-            const Response = await axios.get('https://hexago.onrender.com//Auth');
-            console.log(Response.data);
-        }
-        catch(err){
-            console.log(err);
-        }
-    }
-    // getUsers();
-    // const [Members,setMembers] = useState('Admin');
+    const Users = useSelector((state)=>state.Users.AllUsers);
+    const [Members,setMembers] = useState(Users);
     return(
         <div className="Management">
             <div className="Top">
@@ -24,26 +15,36 @@ const Management = () =>{
                 <p>Management <span>Dashboard</span></p>
             </div>
             <div className="selectors">
-                <div className="selector">
+                <div className="selector" onClick={()=>{setMembers(Admins)}}>
                     <AiOutlineUser id="icon"/>
                     <h2>Admin - 20</h2>
                 </div>
-                <div className="selector">
+                <div className="selector" onClick={()=>{setMembers(Users)}}>
                     <AiOutlineUser id="icon"/>
                     <h2>Users - 120</h2>
                 </div>
             </div>
-            <div className="Members">
+            <table id="table">
+                <tr>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>Kavin kumar M</td>
+                    <td>kavinkumar.prof@gmail.com</td>
+                    <td>Delete</td>
+                </tr>
                 {
-                    Admins?.map((Admin)=>
-                        <div className="Member">
-                            <h3>{Admin.Username}</h3>
-                            <h4>{Admin.email}</h4>
-                            
-                        </div>   
+                    Members?.map((Member)=>
+                        <tr className="Member">
+                            <td>{Member.Username}</td>
+                            <td>{Member.email}</td>
+                            <td>Delete</td>
+                        </tr>   
                     )
                 }
-            </div>
+            </table>
         </div>
     )
 }
