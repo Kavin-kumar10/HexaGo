@@ -17,11 +17,11 @@ const Management = () =>{
             <div className="selectors">
                 <div className="selector" onClick={()=>{setMembers(Admins)}}>
                     <AiOutlineUser id="icon"/>
-                    <h2>Admin - 20</h2>
+                    <h2>Admin - {Admins.length}</h2>
                 </div>
                 <div className="selector" onClick={()=>{setMembers(Users)}}>
                     <AiOutlineUser id="icon"/>
-                    <h2>Users - 120</h2>
+                    <h2>Users - {Users.length}</h2>
                 </div>
             </div>
             <table id="table">
@@ -30,11 +30,7 @@ const Management = () =>{
                     <th>Email</th>
                     <th>Status</th>
                 </tr>
-                <tr>
-                    <td>Kavin kumar M</td>
-                    <td>kavinkumar.prof@gmail.com</td>
-                    <td>Delete</td>
-                </tr>
+             
                 {
                     Members?.map((Member)=>
                         <tr className="Member">

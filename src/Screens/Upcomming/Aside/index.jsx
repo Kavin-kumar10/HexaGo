@@ -26,20 +26,6 @@ const Aside = () =>{
                         <option value={10}>Completed</option>
                 </select>
             </div>
-            {/* <div className="Category_filter">
-                <h3>Category</h3>
-                <div className="line"></div>
-                <div className="filter_box">
-                    Select Category
-                </div>
-            </div>
-            <div className="Location_filter">
-                <h3>Location</h3>
-                <div className="line"></div>
-                <div className="filter_box">
-                    Select Location
-                </div>
-            </div> */}
         </div>
     )
 }

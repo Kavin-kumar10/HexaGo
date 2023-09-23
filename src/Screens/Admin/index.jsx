@@ -14,9 +14,9 @@ const Admin =  ({adminSign}) =>{
     const [select,setSelect] = useState("inbox");
     console.log(JSON.parse(localStorage.getItem('user')).Username);
 
-    if(!adminSign){
-        return<Navigate to="/Signup"/>
-    }
+    // if(!adminSign){
+    //     return<Navigate to="/Signup"/>
+    // }
     return(
         <div className="Admin">
             <div className="Admin_head">
@@ -31,14 +31,14 @@ const Admin =  ({adminSign}) =>{
                 </ul>
             </div>
             <div className="Admin_topic">
-                <h1>Inbox - ( Pending Request )</h1>
+                <h1>Inbox - Requests and status</h1>
                 <div className="top_line"></div>
             </div>
             <div className="AdminContainer">
                 {
                     products.filter(item => item.ScheduledAdmin == JSON.parse(localStorage.getItem('user')).Username).map((elem)=>{
                         console.log(elem);
-                        if(elem.status == -1 && select == "inbox" ){
+                        if(elem.status == 5 && select == "inbox" ){
                             return(
                                 <AdminCard elem={elem}/>
                             )

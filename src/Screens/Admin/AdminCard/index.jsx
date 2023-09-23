@@ -8,6 +8,7 @@ const AdminCard = ({elem}) =>{
     const products = useSelector((state)=>state.Products.AllProducts)
     const dispatch = useDispatch();
     console.log(elem);
+    const localDateTimeString = new Date(elem.endDate).toLocaleString("fr-FR");
 
     const handleApprove = async(elem) =>{
         try{
@@ -39,11 +40,11 @@ const AdminCard = ({elem}) =>{
                 <img src={elem.img_url} alt="img" />
                 <div style={{width:"50%"}}>
                     <h2>{elem.title}</h2>
-                    <p>{elem.endDate}</p>
+                    <p>{localDateTimeString}</p>
                 </div>
             </div>
             {
-                (elem.status == -1)?
+                (elem.status == 5)?
                 <div className="AdminCard_bottom">
                     <button id="Preview">Preview</button>
                     <div className="status">

@@ -117,6 +117,7 @@ const Form = ({setPop}) =>{
                         </label> */}
                     </div>
                     <div className="form_right">
+                    <div style={{width:"100%"}}>
                         <div className="form_elem">
                             <label htmlFor="Material">Material:</label>
                             <input type="text" id="Material" name="material" onChange={handleFieldChange}/>
@@ -129,14 +130,14 @@ const Form = ({setPop}) =>{
                             <label htmlFor="Location">Location:</label>
                             <input type="text" id="Location" name="location" onChange={handleFieldChange}/>
                         </div>
-                        <div className="form_elem">
+                        {/* <div className="form_elem">
                             <label htmlFor="Additional">Additional :</label>
                             <textarea type="text" id="Additional" name="additional" onChange={handleFieldChange}/>
                         </div>
                         <div className="form_elem">
                             <label htmlFor="Proof">Proof:</label>
                             <input type="file" id="Proof" name="proof" onChange={handleFieldChange}/>
-                        </div>
+                        </div> */}
                         <div className="form_elem">                          
                             <label htmlFor="Picture" className="Picture">
                                 SELECT IMAGE
@@ -147,6 +148,7 @@ const Form = ({setPop}) =>{
                                 console.log(Image);
                                 // handleImageSelect();
                             }} type="file" id="Picture" style={{display:"none"}} name="image"/>
+                        </div>
                         </div>
                         
                         <div className="form_btn">

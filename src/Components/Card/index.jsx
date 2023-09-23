@@ -2,14 +2,14 @@ import React from "react";
 import {FaBookmark} from 'react-icons/fa'
 import "./Card.scss"
 
-const Card = () =>{
+const Card = ({elem}) =>{
     return(
         <div className="Card">
-            <div className="img">
-                <p>latest bid $250</p>
+            <div className="img" style={{backgroundImage:`url(${elem.img_url})`}}>
+                <p>latest bid ${elem.latestBid}</p>
             </div>
             <div className="Card_desc">
-                <h3>Bottle of Guardian - (Ancient decoration used by britain)</h3>
+                <h3>{elem.title}</h3>
             </div>
             <div className="Card_btn">
                 <button id="Preview">Preview Auction</button>

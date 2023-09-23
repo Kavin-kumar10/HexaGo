@@ -14,28 +14,6 @@ const Upcomming = ({signed,pop,setPop}) =>{
     const ReqProducts = useSelector((state)=>state.Products.ReqProducts);
     const dispatch = useDispatch();
     console.log(ReqProducts);
-    // const [products,setProducts] = useState([
-    // {
-    //     title: 'Bottle of Guardian - (ancient decoration used by britain)',
-    //     date: 'AUG 15 2023',
-    //     place:'TAMIL NADU',
-    //     min:250, 
-    //     latest:{
-    //         person:'Kiran',
-    //         bid:500
-    //     }
-    // },
-    // {
-    //     title: 'New title',
-    //     date: 'SEP 18 2023',
-    //     place:'KERALA',
-    //     min:100, 
-    //     latest:{
-    //         person:'KAVIN',
-    //         bid:300
-    //     }
-    // },
-    // ]);
 
     // if(!signed){
     //     return<Navigate to="/Signup"/>
@@ -54,7 +32,6 @@ const Upcomming = ({signed,pop,setPop}) =>{
                     <div className="box_container">
                         {
                             ReqProducts.map((elem)=>{
-                                // console.log(elem);
                                 return(
                                     <Box elem={elem} key={elem.title}/>
                                 )

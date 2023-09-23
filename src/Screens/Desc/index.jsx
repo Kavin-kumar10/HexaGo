@@ -80,9 +80,9 @@ const Desc = ({setPop,signed}) =>{
         }
     }
 
-    if(!signed){
-        return<Navigate to="/Signup"/>
-    }
+    // if(!signed){
+    //     return<Navigate to="/Signup"/>
+    // }
 
     return(
         (!Elem)?null:
@@ -106,16 +106,16 @@ const Desc = ({setPop,signed}) =>{
                         <p>STARTING BID: ${Elem.minimum}</p>
                     </div>
                     <div className="Share">
-                    <WhatsappShareButton id="media" url={`http://localhost:3000/Product/${Elem._id}`}>
+                    <WhatsappShareButton id="media" url={`https://hexago.vercel.app/Product/${Elem._id}`}>
                         <WhatsappIcon size={35} round={true} />
                     </WhatsappShareButton>
-                    <LinkedinShareButton id="media" url={`http://localhost:3000/Product/${Elem._id}`}>
+                    <LinkedinShareButton id="media" url={`https://hexago.vercel.app/Product/${Elem._id}`}>
                         <LinkedinIcon size={35} round={true} />
                     </LinkedinShareButton>
-                    <TelegramShareButton id="media" url={`http://localhost:3000/Product/${Elem._id}`}>
+                    <TelegramShareButton id="media" url={`https://hexago.vercel.app/Product/${Elem._id}`}>
                         <TelegramIcon size={35} round={true} />
                     </TelegramShareButton>                 
-                    <TwitterShareButton id="media" url={`http://localhost:3000/Product/${Elem._id}`}>
+                    <TwitterShareButton id="media" url={`https://hexago.vercel.app/Product/${Elem._id}`}>
                         <TwitterIcon size={35} round={true} />
                     </TwitterShareButton>
 

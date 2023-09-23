@@ -6,6 +6,8 @@ import axios from "axios";
 import "./Box.scss"
 
 const Box = ({elem}) =>{
+    const localDateTimeString = new Date(elem.endDate).toLocaleString("fr-FR");
+
     return(
         <div className="Box">
             <div className="img">
@@ -23,7 +25,7 @@ const Box = ({elem}) =>{
                 }
                 <div className="mid">
                     <h1>{elem.title}</h1>
-                    <h2>{elem.endDate} - {elem.location}</h2>
+                    <h2>{localDateTimeString} - {elem.location}</h2>
                 </div>
                 {
                     (new Date(elem.endDate) - new Date() > 0)?

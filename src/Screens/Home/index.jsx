@@ -33,7 +33,7 @@ const Home = ({signed,setPop}) =>{
                 <div className="Card_container">
                     {
                         (ReqProducts)?.map((elem)=>
-                            <Card/>
+                            <Card elem={elem}/>
                         )
                     }
             
@@ -46,7 +46,7 @@ const Home = ({signed,setPop}) =>{
                         </div>
                         <div className="layer_bot">
                             <p>Send your product details to us and get verified</p>
-                            <button>Start Selling</button>
+                            <button onClick={()=>{setPop(true)}}>Start Selling</button>
                         </div>
                     </div>
                 </div>
