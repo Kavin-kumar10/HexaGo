@@ -49,12 +49,13 @@
             width: 45px;
             border-radius: 12px;
             outline: none;
+            color: white !important;
             border: 1px solid var(--tertiary-color);
             font-size: clamp(12px,1.2vw,1.5vw);
         }
         #Preview{
             background-color: var(--tertiary-color);
-            color:var(--primary-color);
+            color:var(--primary-color) !important;
             width: 80%;
             &:hover{
                 background: var(--primary-color);

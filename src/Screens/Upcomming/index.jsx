@@ -31,7 +31,7 @@ const Upcomming = ({signed,pop,setPop}) =>{
                    }}/>
                     <div className="box_container">
                         {
-                            ReqProducts.map((elem)=>{
+                            ReqProducts.filter(item => item.status != 0).map((elem)=>{
                                 return(
                                     <Box elem={elem} key={elem.title}/>
                                 )

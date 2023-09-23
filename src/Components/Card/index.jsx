@@ -1,5 +1,6 @@
 import React from "react";
 import {FaBookmark} from 'react-icons/fa'
+import { Link } from "react-router-dom";
 import "./Card.scss"
 
 const Card = ({elem}) =>{
@@ -12,7 +13,7 @@ const Card = ({elem}) =>{
                 <h3>{elem.title}</h3>
             </div>
             <div className="Card_btn">
-                <button id="Preview">Preview Auction</button>
+                <button id="Preview"><Link style={{textDecoration:"none",color:"black"}} to={`/Product/${elem._id}`}>Preview Auction</Link></button>
                 <button><FaBookmark color="var(--tertiary-color)"/></button>
             </div>
         </div>

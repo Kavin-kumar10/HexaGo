@@ -9,6 +9,7 @@ const Box = ({elem}) =>{
     const localDateTimeString = new Date(elem.endDate).toLocaleString("fr-FR");
 
     return(
+        
         <div className="Box">
             <div className="img">
                 <img src={elem.img_url} alt="img" />

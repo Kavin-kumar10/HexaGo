@@ -15,6 +15,7 @@
     }
     .MyCardContainer{
         margin: 50px 0px;
+        overflow-y: scroll;
         .MyCard{
             display: flex;
             align-items: center;

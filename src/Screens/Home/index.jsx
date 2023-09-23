@@ -36,7 +36,6 @@ const Home = ({signed,setPop}) =>{
                             <Card elem={elem}/>
                         )
                     }
-            
                 </div>
                 <div className="seller" style={{background:`url(${bg})`,backgroundPosition:"center",backgroundRepeat:"no-repeat",backgroundSize:"cover"}}>
                     <div className="layer">

@@ -44,7 +44,7 @@ const Myproducts = ({setPop}) =>{
                                     </div>
                                 </div>
                                 {
-                                    (elem.status == -1)?<span id='pend' onClick={()=>{setSchedpop(true);setPro(elem);}}>Schedule Now</span>:(elem.status == 1)?<span id='app'>Approved</span>:(elem.status == 10)?<span id='Com'>Auction Completed</span>:(elem.status == 5)?<span id='Sched'>Scheduled</span>:<span id='rej'>Rejected</span>
+                                    (elem.status == -1)?<span id='pend' onClick={()=>{setSchedpop(true);setPro(elem);}}>Schedule Now</span>:(elem.status == 1)?<span id='app'>Approved</span>:(elem.status == 10)?<span id='Com'>Congrats Auction Completed with ${elem.finalBid}</span>:(elem.status == 5)?<span id='Sched'>Scheduled</span>:<span id='rej'>Rejected</span>
                                 }
                             </div>
                         )
