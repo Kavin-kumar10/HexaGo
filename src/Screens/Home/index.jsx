@@ -12,9 +12,9 @@ const Home = ({signed,setPop}) =>{
     const ReqProducts = useSelector((state)=>state.Products.ReqProducts);
     const dispatch = useDispatch();
     console.log(ReqProducts);
-    // if(!signed){
-    //     return<Navigate to="/Signup"/>
-    // }
+    if(!signed){
+        return<Navigate to="/Signup"/>
+    }
     return(
         <div className="Home">
             <Header setPop={setPop}/>
